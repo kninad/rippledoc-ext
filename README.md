@@ -108,7 +108,7 @@ touch README.md
 cd doc
 touch _copyright getting-started.md  # tutorial.md, changes.md, ...
 # Edit those files, then run Rippledoc, telling it to use ../README.md.
-rippledoc.py --readme-is-index
+rippledoc.py --readme_is_index
 ~~~
 
 and point your browser to <file:///path/to/my-project/doc/index.html>

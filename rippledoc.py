@@ -42,13 +42,13 @@ You run this program in the root (top-level) of your
 documentation directory to generate easily-navigable HTML files
 from your (pandoc-)markdown-formatted doc files. For more info,
 see the docs this program came with, or else its docs online at
-<http://www.unexpected-vortices.com/sw/rippledoc/index.html>.
+<https://kninad.github.io/rippledoc-ext/index.html>.
 
 Usage:
 
     rippledoc.py
 
-    rippledoc.py --readme-is-index  # Will copy ../README.md to
+    rippledoc.py --readme_is_index  # Will copy ../README.md to
                                     # ./index.md. Any existing
                                     # ./index.md will be over-
                                     # written.
@@ -59,13 +59,11 @@ directory, delete:
   * all toc.conf files
   * the styles.css and _copyright files
   * all generated .html files
-  * if you used `--readme-is-index`, the copied-in ./index.md file
+  * if you used `--readme_is_index`, the copied-in ./index.md file
     as well.
 
 Exiting.
 """
-
-available_options = ["--readme-is-index"]
 
 def make_parser():
     parser = argparse.ArgumentParser(
@@ -129,19 +127,19 @@ def main(args):
         print(mlsl("""\
         [**] Unable to find an "index.md" file here. You either need one
         [**] present, or else must have a ../README.md file present and
-        [**] pass `--readme-is-index` (which will cause Rippledoc to copy
+        [**] pass `--readme_is_index` (which will cause Rippledoc to copy
         [**] it here as ./index.md). Exiting.
         """))
         sys.exit(0)
 
-    # In case you previously ran with `--readme-is-index`, and we copied
+    # In case you previously ran with `--readme_is_sindex`, and we copied
     # the ../README.md to ./index.md, but then you forgot to pass
-    # `--readme-is-index` on a subsequent run.
+    # `--readme_is_index` on a subsequent run.
     if (not using_readme_as_index) and os.path.exists("../README.md") and \
        os.path.exists("./index.md"):
         res = input(mlsl("""\
         [?] Found a ../README.md file, as well as an ./index.md file,
-        [?] and also noticed that you didn't pass the `--readme-is-index`
+        [?] and also noticed that you didn't pass the `--readme_is_index`
         [?] option. Continue, using ./index.md? y/n: """))
         if res == 'y':
             print("Ok, proceeding...")
