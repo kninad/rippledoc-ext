@@ -18,6 +18,7 @@
 # along with Rippledoc.  If not, see <http://www.gnu.org/licenses/>."
 
 import os, os.path, sys, subprocess, io, re, shutil
+import argparse
 from datetime import datetime
 
 VERSION = "2023-03-08"
@@ -66,25 +67,39 @@ Exiting.
 
 available_options = ["--readme-is-index"]
 
-def main():
+def make_parser():
+    parser = argparse.ArgumentParser(
+                    prog = 'rippledoc',
+                    description = usage_msg,
+                    epilog = 'Credits: John Gabriele for original rippledoc',)
+
+    parser.add_argument('--readme_is_index',
+                        action='store_true',
+                        help='Whether to use a README.md file one level up for index.md',)
+
+    parser.add_argument('--copyright_str',
+                        type=str,
+                        default='Wiki Notes and Documentation',
+                        help='Kind of a copyright/meta info string shown in page footer',)
+    
+    parser.add_argument('--lua_filter_path',
+                        type=str,
+                        default='./links-to-html.lua',
+                        help='custom lua filter script for pandoc',)
+
+    args = parser.parse_args()
+    return args
+
+
+def main(args):
     print(f"================ Rippledoc, version {VERSION} ================")
 
-    if len(sys.argv) > 1 and (sys.argv[1] not in available_options):
-        print(usage_msg)
-        sys.exit(0)
-
     if not os.path.exists("_copyright"):
-        print(mlsl("""\
-        [**] Unable to find a "_copyright" file here. Please make
-        [**] sure you're running this program in the root (top-level)
-        [**] of your doc directory, and that there's a _copyright file
-        [**] present here. This file typically contains something like:
-        [**]
-        [**]     Copyright 2016–2018 Your Name
-        [**]
-        [**] (including raw HTML is ok too). Exiting.
-        """))
-        sys.exit(0)
+        print("Could not find a _copyright file, so will use command line args.")
+        copyright_string = args.copyright_str
+    else:
+        # The copyright file can contain simple raw html as well! Keep it short.
+        copyright_string = io.open("_copyright").read().strip()
 
     if os.path.exists("README.md"):
         print(mlsl("""\
@@ -95,8 +110,10 @@ def main():
         sys.exit(0)
 
     global using_readme_as_index
-    if len(sys.argv) == 2 and sys.argv[1] == '--readme-is-index':
-        using_readme_as_index = True
+    using_readme_as_index = args.readme_is_index
+    
+    global lua_filter
+    lua_filter = args.lua_filter_path if os.path.exists(args.lua_filter_path) else None
 
     if using_readme_as_index and (not os.path.exists("../README.md")):
         print(mlsl("""\
@@ -148,7 +165,7 @@ def main():
     print(f"""Generating docs for "{project_name}" ...""")
 
     global copyright_info
-    copyright_info = io.open("_copyright").read().strip()
+    copyright_info = copyright_string
 
     if not os.path.exists("styles.css"):
         print("""Didn't find a styles.css file here. Creating one...""")
@@ -390,6 +407,9 @@ def pandoc_process_file(md_fnm):
     pandoc_cmd.append('--css=' + '../' * depth + 'styles.css')
     pandoc_cmd.extend(['-B', '/tmp/before.html', '-A', '/tmp/after.html'])
     pandoc_cmd.extend(['-o', html_fnm])
+    if lua_filter:
+        print(f"using lua_filter:")
+        pandoc_cmd.extend([f'--lua-filter={lua_filter}'])
     subprocess.check_call(pandoc_cmd)
 
 
@@ -680,4 +700,6 @@ h3, h5 {
 """
 
 # -----------------------------------
-main()
+if __name__ == "__main__":
+    args = make_parser()
+    main(args)
