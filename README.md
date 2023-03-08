@@ -1,34 +1,18 @@
 # rippledoc-ext
-Modifying [rippledoc](http://www.unexpected-vortices.com/sw/rippledoc/index.html) for personal use. 
-Rippledoc is a useful utility to render a folder full of markdown files to html counterparts. I sourced
-the code for rippledoc from its GitLab [repository](https://gitlab.com/uvtc/rippledoc).
+Modifying [rippledoc](http://www.unexpected-vortices.com/sw/rippledoc/index.html)
+for personal use. Rippledoc is a useful utility to render a folder full of 
+markdown files to html counterparts. I sourced the code for rippledoc from its 
+GitLab [repository](https://gitlab.com/uvtc/rippledoc).
 
 - Preserves Links
 - Default css theme is nice!
 - Produces table of contents (toc) which is useful for documentation and wiki-like notes.
 - Free to modify and change according to our own needs.
 
-# TO DO
+Complete documentation for my tool (including changes) can be found in the
+github [repo](https://github.com/kninad/rippledoc-ext/) or the associated
+html pages for it. 
 
-1. [x] *Title:* Change the default for doc title. If no `% title DOC_TITLE` block
-   found, then instead of quitting, simply use the filename as a sane default. 
-2. [x] *Copyright:* Auto create the copyright information based on some command 
-   line args string. Add a sane default with fun name!
-3. [x] *Document Footer:* 
-   1. [x] Remove the option to view pandoc markdown source 
-   2. [x] Update link to rippledoc repo to point to custom repo with my changes
-   3. [x] Edit string for copyright to remove the word copyright!
-   4. [x] Add last modified: date, time and timezone.
-4. [x] *Links:* write pandoc filter to auto-convert internal markdown links
-   to html. This will ensure inter-linking of files is preserved even when
-   converted to html. See [this](https://stackoverflow.com/q/40993488/9579260)
-   stack overflow thread for ideas about how to implement this.
-5. [ ] *Style:* Edit the default css file according to your needs!
-6. [ ] *Output:* Option for writing html files to a custom `_site` dir.
-7. [ ] *Help Docs:* Create a list of docs and host them on your github webpage.
-   Refer the help message of this website to the edited docs.
-   
-    
 
 # Original README
 
@@ -38,6 +22,13 @@ Rippledoc is a command-line program that uses
 [Pandoc](http://pandoc.org/) to generate easily-navigable HTML from a
 bunch of Markdown-formatted text files (it ripples down into
 subdirectories looking for .md files).
+
+This tool was modified from the original
+[rippledoc](http://www.unexpected-vortices.com/sw/rippledoc/index.html) for
+for personal use. Rippledoc is a useful utility to render a folder full of 
+markdown files to html counterparts. My source file merely extends the original
+with some features that I found to be useful.
+
 
 That is, it turns:
 
