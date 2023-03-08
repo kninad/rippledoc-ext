@@ -403,6 +403,7 @@ def pandoc_process_file(md_fnm):
         '--mathjax=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_CHTML-full')
     if md_fnm != './index.md':
         pandoc_cmd.append('--toc')
+        pandoc_cmd.extend(['--toc-depth', '2'])
     depth = md_fnm.count('/') - 1
     pandoc_cmd.append('--css=' + '../' * depth + 'styles.css')
     pandoc_cmd.extend(['-B', '/tmp/before.html', '-A', '/tmp/after.html'])
