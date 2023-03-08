@@ -18,6 +18,7 @@
 # along with Rippledoc.  If not, see <http://www.gnu.org/licenses/>."
 
 import os, os.path, sys, subprocess, io, re, shutil
+from datetime import datetime
 
 VERSION = "2023-03-08"
 
@@ -373,6 +374,8 @@ def pandoc_process_file(md_fnm):
     html_aft = html_after.replace('{{nav-bar-content}}', nav_bar_content)
     html_aft = html_aft.replace('{{copyright-info}}', copyright_info)
     html_aft = html_aft.replace('{{link-to-this-page-md}}', os.path.basename(md_fnm))
+    current_datetime = datetime.now().strftime('%d-%b-%y %I:%M %p')
+    html_aft = html_aft.replace('{{last-updated-datetime}}', current_datetime)
 
     io.open('/tmp/before.html', 'w').write(html_bef)
     io.open('/tmp/after.html' , 'w').write(html_aft)
@@ -515,9 +518,9 @@ html_after = """
 
 <div id="my-footer">
 {{copyright-info}}<br/>
-<a href="{{link-to-this-page-md}}">Pandoc-Markdown source for this page</a><br/>
-(Docs processed by
-<a href="http://www.unexpected-vortices.com/sw/rippledoc/index.html">Rippledoc</a>.)
+Page last updated: {{last-updated-datetime}}</br>
+Created using a mod of
+<a href="http://www.unexpected-vortices.com/sw/rippledoc/index.html">Rippledoc</a>
 </div> <!-- my-footer -->
 
 </div> <!-- main-outer-box -->
