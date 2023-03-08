@@ -1,9 +1,20 @@
 % Changes
-% John Gabriele
+% John Gabriele, Ninad Khargonkar
+
+# v2023-03-08
+
+  * Auto pick the doc's title from filename if no `% title` line on top of doc.
+  * Option to pass copyright info as a command line instead of always
+    requiring a file.
+  * Option to use a custom lua filter script which maps the markdown doc
+    links to their equivalent html.
+  * Custom document footer with doc update time.
+  * Update the project documentation, host it on github pages and point to the
+    repo's doc instead of rippledoc's home when printing help message.
 
 # v2018-08-15
 
-  * Instead of using heuristics, added `--readme-is-index` option.
+  * Instead of using heuristics, added `--readme_is_index` option.
   * Updated docs. Removed index.md, using ../README.md instead.
   * Made prev/next links spread out across nav header and footer.
   * Minor styling updates.
