@@ -700,6 +700,13 @@ h3, h5 {
 }
 """
 
+LUA_HTML_LINK_FILTER = """\
+function Link(el)
+    el.target = string.gsub(el.target, "%.md", ".html")
+    return el
+  end
+"""
+
 # -----------------------------------
 if __name__ == "__main__":
     args = make_parser()
