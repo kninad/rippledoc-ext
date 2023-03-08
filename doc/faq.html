@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<!-- CUSTOM CSS FILE-->
+<link rel="stylesheet" href="/home/ninad/.pandoc/pandoc.css" type="text/css" />
+  <meta name="author" content="John M. Gabriele">
+  <title>FAQ</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div id="main-outer-box">
+
+<div id="my-header">
+  <a href="index.html">Rippledoc Extended</a>
+</div>
+
+<div id="trunk-box">
+
+<div id="nav-box">
+<p>Contents:</p>
+<ul>
+<li><a href="more-info.html">More Info</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-markdown-example.html">Quick Markdown Example</a></li>
+<li><a href="rationale-and-benefits.html">Rationale and Benefits</a></li>
+<li><a href="authoring-tips.html">Authoring Tips</a></li>
+<li><strong>FAQ</strong></li>
+<li><a href="changes.html">Changes</a></li>
+<li><a href="TODO.html">TODO</a></li>
+</ul>
+
+</div>
+
+<div id="article-box">
+
+<div id="header-nav-bar">
+<div><a href="authoring-tips.html">←prev</a></div><div class="nav-bar-push"><a href="changes.html">next→</a></div>
+</div>
+
+<div id="article-content">
+<header>
+<h1 class="title">FAQ</h1>
+<p class="author">John M. Gabriele</p>
+</header>
+<p><strong>“Why write another documentation processing program?”</strong></p>
+<p>See the <a href="rationale.html">rationale page</a>.</p>
+<p><strong>“Why use Markdown? Why not LaTeX, reST, moinmoin wiki syntax, etc?”</strong></p>
+<p>The main goal of Rippledoc is to assist in making docs as easy as possible to create, write, and to contribute to. Aside from probably being the most widely known, Markdown is, IMO, the easiest of the markup formats to read, and also very easy to write and to remember; and <a href="http://pandoc.org/MANUAL.html#pandocs-markdown">pandoc-markdown</a> tastefully adds what’s missing from original Markdown and/or <a href="http://commonmark.org/">CommonMark</a>.</p>
+<p><strong>“But my favorite programming language uses {fave-markup}!”</strong></p>
+<p>Documentation often benefits greatly when <em>others</em> also contribute to it. Good writers may not know your markup format of choice, and may not be interested in taking the time to learn it and the its required tooling. But they very likely already know Markdown (or can <a href="quick-markdown-example.html">learn it in 5 minutes</a>).</p>
+<p><strong>“But Rippledoc is written in Python! My project uses {other-language}!”</strong></p>
+<p>Rippledoc is a fairly simple program which happens to be written in Python and which could easily be rewritten in any number of other languages.</p>
+<p>Under the hood, Rippledoc uses <a href="http://pandoc.org/">Pandoc</a> to do the heavy lifting. Although Pandoc can translate between various markup formats, Rippledoc is only using it to convert Markdown to HTML. There are many other Markdown implementations that you could use if you wanted to (most languages tend to have at least one implementation), though they might not have the excellent enhancements that Pandoc provides. See <a href="http://commonmark.org/">CommonMark</a> for more info on Markdown and various implementations of it.</p>
+<p><strong>“Why use Pandoc under the hood and not {my-favorite-markdown-implementation}?”</strong></p>
+<p>Because Pandoc:</p>
+<ul>
+<li>supports tables, definition lists, line blocks, footnotes, and <span class="math inline">\(\LaTeX\)</span> math</li>
+<li>supports code block syntax highlighting</li>
+<li>is high-quality and reliable</li>
+<li>is actively maintained</li>
+<li>supports the command-line options that Rippledoc requires</li>
+<li>runs fast</li>
+<li>is easy to install on GNU/Linux</li>
+</ul>
+<p><strong>“Bah, my project is hosted on GitLab (or similar); why not just let users read the docs there, since GitLab automatically renders .md files as html?”</strong></p>
+<p>Mainly because:</p>
+<ul>
+<li>Pandoc (used by Rippledoc) supports a number of very useful Markdown syntax extensions which GitLab’s markdown processor may not (see previous FAQ item).</li>
+<li>Rippledoc provides excellent navigation links, a table of contents, and lets you order your docs (providing prev/next links).</li>
+<li>With Rippledoc you can customize styling and more easily incorporate your docs into your project’s website.</li>
+</ul>
+<p><strong>“Wait. Why use Rippledoc when I can just put up (or enable) a wiki?”</strong></p>
+<p>Because:</p>
+<ul>
+<li>You usually have to edit wiki content on the web, rather than in your text editor. Potential contributors who are skilled writers will not want to make substantial doc contributions via a web form.</li>
+<li>Thoughtful writers will often not want to contribute to a wiki, since their careful writing can so easily be wrecked-up by a heedless hit-and-run editor.</li>
+<li>Wikis require management (sometimes vigilant management). This includes removing spam, but also intervening when editors disagree on eachother’s changes.</li>
+<li>Wikis have a way of becoming disorganized while simultaneously becoming out of date. And once that happens no one wants to touch them.</li>
+<li>They very likely do not support the nice syntactic markdown extensions that Pandoc (used by Rippledoc) does.</li>
+<li>They provide no nice table of contents nor easy navigation links.</li>
+<li>If you want to move your docs at some point, it’s not always easy to extract your doc files from wikis or to migrate to another wiki.</li>
+<li>Changes to the wiki generally are not connected with commits to your source code repo.</li>
+</ul>
+<p><strong>“Why does Rippledoc process all md files every time I run it?”</strong></p>
+<p>Because Rippledoc figures out prev/next links, and also the links in the the toc’s contain document titles, it’s tricky to keep track of which files need regenerating when a title is changed or a new doc file is added, or when a toc.conf is changed. So, Rippledoc currently takes the easy way out and simply regenerates all files every time.</p>
+<p><strong>“I don’t like Rippledoc’s default output style. Can I change it?”</strong></p>
+<p>Certainly. When you first run Rippledoc it creates a default styles.css file which you can then modify.</p>
+
+</div> <!-- article-content -->
+
+<div id="footer-nav-bar">
+<div><a href="authoring-tips.html">←prev</a></div><div class="nav-bar-push"><a href="changes.html">next→</a></div>
+</div>
+
+</div> <!-- article-box -->
+
+</div> <!-- trunk-box -->
+
+<div id="my-footer">
+<a href="http://www.unexpected-vortices.com/">John Gabriele</a>, 2014&ndash;18.
+Modified by Ninad Khargonkar.<br/>
+Page last updated: 08-Mar-23 04:47 PM</br>
+Created using a <a href="https://github.com/kninad/rippledoc-ext">mod</a> of
+<a href="http://www.unexpected-vortices.com/sw/rippledoc/index.html">Rippledoc</a>
+</div> <!-- my-footer -->
+
+</div> <!-- main-outer-box -->
+
+</body>
+</html>

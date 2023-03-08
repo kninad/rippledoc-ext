@@ -1,5 +1,5 @@
 % More Info
-% John Gabriele
+% John Gabriele and Ninad Khargonkar
 
 Rippledoc is talkative. Just run it and it will tell you if you're
 missing something.
@@ -30,6 +30,9 @@ Rippledoc has a few rules:
     You can also add additional lines to that block for author and
     date (see [Title
     Block](http://pandoc.org/MANUAL.html#extension-pandoc_title_block)).
+    
+    **UPDATE:** If the doc does not have a top level `% title`, then the file name
+    will be used as the title (albeit with pandoc displaying a WARNING!)
 
   * A file named "\_copyright" is required in your doc dir; this is
     how Rippledoc knows it's at the top-level of your docs (in case
@@ -41,6 +44,10 @@ Rippledoc has a few rules:
     ~~~html
     Copyright <a href="https://www.you.info">Your Name</a>, 2014–2018
     ~~~
+
+    **UPDATE:** This is not actually needed and instead you can pass the copyright
+    info as a cmd line argument. Main motivation to remove this requirement was
+    to not *pollute* the doc dir with the `_copyright` file!
 
 Further, Rippledoc:
 
