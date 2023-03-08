@@ -519,7 +519,7 @@ html_after = """
 <div id="my-footer">
 {{copyright-info}}<br/>
 Page last updated: {{last-updated-datetime}}</br>
-Created using a mod of
+Created using a <a href="https://github.com/kninad/rippledoc-ext">mod</a> of
 <a href="http://www.unexpected-vortices.com/sw/rippledoc/index.html">Rippledoc</a>
 </div> <!-- my-footer -->
 
