@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<!-- CUSTOM CSS FILE-->
+<link rel="stylesheet" href="/home/ninad/.pandoc/pandoc.css" type="text/css" />
+  <meta name="author" content="John Gabriele and Ninad Khargonkar">
+  <title>More Info</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="styles.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div id="main-outer-box">
+
+<div id="my-header">
+  <a href="index.html">Rippledoc Extended</a>
+</div>
+
+<div id="trunk-box">
+
+<div id="nav-box">
+<p>Contents:</p>
+<ul>
+<li><strong>More Info</strong></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-markdown-example.html">Quick Markdown Example</a></li>
+<li><a href="rationale-and-benefits.html">Rationale and Benefits</a></li>
+<li><a href="authoring-tips.html">Authoring Tips</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="changes.html">Changes</a></li>
+<li><a href="TODO.html">TODO</a></li>
+</ul>
+
+</div>
+
+<div id="article-box">
+
+<div id="header-nav-bar">
+<div><a href="index.html">←prev</a></div><div class="nav-bar-push"><a href="install.html">next→</a></div>
+</div>
+
+<div id="article-content">
+<header>
+<h1 class="title">More Info</h1>
+<p class="author">John Gabriele and Ninad Khargonkar</p>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#what-it-expects">What it Expects</a></li>
+<li><a href="#what-it-does">What it Does</a></li>
+</ul>
+</nav>
+<p>Rippledoc is talkative. Just run it and it will tell you if you’re missing something.</p>
+<h1 id="what-it-expects">What it Expects</h1>
+<p>Rippledoc has a few rules:</p>
+<ul>
+<li><p>All doc files which you’d like Rippledoc to process must be Markdown-formatted (see <a href="http://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc’s Markdown</a>) and their filenames must end in “.md”. Rippledoc only cares about and processes filenames ending in “.md” — notably, it ignores “.txt” files.</p></li>
+<li><p>You must have either an index.md file in your doc directory, or else a README.md file in the directory above it. Plus at least one other .md file in the doc directory.</p></li>
+<li><p>Your doc files (../README.md too if you’re using it in place of an index.md here) must begin with a “header block” supplying a title, for example:</p>
+<pre><code>% Title for this Doc</code></pre>
+<p>You can also add additional lines to that block for author and date (see <a href="http://pandoc.org/MANUAL.html#extension-pandoc_title_block">Title Block</a>).</p>
+<p><strong>UPDATE:</strong> If the doc does not have a top level <code>% title</code>, then the file name will be used as the title (albeit with pandoc displaying a WARNING!)</p></li>
+<li><p>A file named “_copyright” is required in your doc dir; this is how Rippledoc knows it’s at the top-level of your docs (in case you were to accidentally run it in a subdirectory therein). Rippledoc will place the raw html content of _copyright as-is into the footer of every html file it generates. The _copyright file will usually contain something simple like:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Copyright <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://www.you.info&quot;</span><span class="kw">&gt;</span>Your Name<span class="kw">&lt;/a&gt;</span>, 2014–2018</span></code></pre></div>
+<p><strong>UPDATE:</strong> This is not actually needed and instead you can pass the copyright info as a cmd line argument. Main motivation to remove this requirement was to not <em>pollute</em> the doc dir with the <code>_copyright</code> file!</p></li>
+</ul>
+<p>Further, Rippledoc:</p>
+<ul>
+<li>is happy to process nested subdirectories of .md files</li>
+<li>gleefully ignores directories containing no .md files (for example, you might have just a subdirectory of images)</li>
+</ul>
+<h1 id="what-it-does">What it Does</h1>
+<p>Rippledoc generates cross-linked html files from your markdown-formatted doc files. It also generates:</p>
+<ul>
+<li>a top-level styles.css file (feel free to customize), and</li>
+<li>default toc.conf files for each directory with any .md files in or under it.</li>
+</ul>
+<p>A given generated html file resides in the same directory as its corresponding source .md file (you’ll see a link directly to the .md file in the corresponding html page’s footer).</p>
+<p>To rearrange the order in which docs are listed in the table of contents, edit any of the toc.conf files and re-run rippledoc.py.</p>
+<p>Either a top-level index.md file, or else a README.md file one directory above the doc directory, is special and required. It serves as the “front page” of your documentation. Also, its title (in its “<a href="http://pandoc.org/MANUAL.html#extension-pandoc_title_block">title block</a>”) should be the name of your project — it will be shown in the header of every generated page.</p>
+<p><a id="simple-template"/> As a simple template, you might start each of your docs looking something like this:</p>
+<pre><code>% Title Goes Here
+% Author Name
+% 2018-07
+
+Some text.
+
+An H1 Heading
+=============
+
+Some text.
+
+An H2 Heading
+-------------
+
+And so on.</code></pre>
+<p>The title after the “<code>%</code>” is what will appear in the table of contents (except for index.md or ../README.md, the title of which will be used as the name of your documentation project as a whole).</p>
+<p>For more help writing Pandoc’s Markdown, see the <a href="quick-markdown-example.html">Quick Markdown Example</a>.</p>
+<p>Once you’ve got some docs written, you might rsync/ftp/scp your docs dir to the web to publish them (<a href="index.html#quick-usage">as shown earlier</a>).</p>
+
+</div> <!-- article-content -->
+
+<div id="footer-nav-bar">
+<div><a href="index.html">←prev</a></div><div class="nav-bar-push"><a href="install.html">next→</a></div>
+</div>
+
+</div> <!-- article-box -->
+
+</div> <!-- trunk-box -->
+
+<div id="my-footer">
+<a href="http://www.unexpected-vortices.com/">John Gabriele</a>, 2014&ndash;18.
+Modified by Ninad Khargonkar.<br/>
+Page last updated: 08-Mar-23 04:47 PM</br>
+Created using a <a href="https://github.com/kninad/rippledoc-ext">mod</a> of
+<a href="http://www.unexpected-vortices.com/sw/rippledoc/index.html">Rippledoc</a>
+</div> <!-- my-footer -->
+
+</div> <!-- main-outer-box -->
+
+</body>
+</html>

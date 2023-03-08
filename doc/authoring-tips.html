@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<!-- CUSTOM CSS FILE-->
+<link rel="stylesheet" href="/home/ninad/.pandoc/pandoc.css" type="text/css" />
+  <meta name="author" content="John Gabriele">
+  <title>Authoring Tips</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="styles.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div id="main-outer-box">
+
+<div id="my-header">
+  <a href="index.html">Rippledoc Extended</a>
+</div>
+
+<div id="trunk-box">
+
+<div id="nav-box">
+<p>Contents:</p>
+<ul>
+<li><a href="more-info.html">More Info</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-markdown-example.html">Quick Markdown Example</a></li>
+<li><a href="rationale-and-benefits.html">Rationale and Benefits</a></li>
+<li><strong>Authoring Tips</strong></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="changes.html">Changes</a></li>
+<li><a href="TODO.html">TODO</a></li>
+</ul>
+
+</div>
+
+<div id="article-box">
+
+<div id="header-nav-bar">
+<div><a href="rationale-and-benefits.html">←prev</a></div><div class="nav-bar-push"><a href="faq.html">next→</a></div>
+</div>
+
+<div id="article-content">
+<header>
+<h1 class="title">Authoring Tips</h1>
+<p class="author">John Gabriele</p>
+</header>
+<p>If you’re not sure where to begin, do this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-project</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README.md</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> doc</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> doc</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> getting-started.md tutorial.md examples.md changes.md</span></code></pre></div>
+<p>Regarding those md files:</p>
+<dl>
+<dt>../README.md</dt>
+<dd>Required, but you probably already have this. Should be your project’s overview. Explain what your project is, what it does, and why folks would want to use it. The content will render as the “front page” of your project’s docs. If you prefer, you can have ../README.md be minimal, and instead put the bulk of the overview material into a doc/index.md file.
+</dd>
+<dt>getting-started.md</dt>
+<dd>How to install, set up, and get a hello-world example working.
+</dd>
+<dt>tutorial.md</dt>
+<dd>For now can just be a walkthrough: detailed instructions, start to finish, on how to use some basic feature(s) of your project.
+</dd>
+<dt>examples.md</dt>
+<dd>Be sure to use syntax highlighting for your code snippets. If you have a lot of examples, skip the examples.md file and instead create an examples <em>directory</em> which you can then populate with <em>this-feature</em>.md and <em>that-feature</em>.md files. Likewise if you have multiple tutorials!
+</dd>
+<dt>changes.md</dt>
+<dd>It’s much appreciated by this reader if you’d please include dates along with the version numbers. In this doc, summarize user-facing changes; if readers are interested in seeing individual <em>code</em> changes, they can always look at the version control logs.
+</dd>
+</dl>
+<p>Other ideas for documents you (or potential contributors) might write:</p>
+<ul>
+<li><strong>cheatsheet.md</strong></li>
+<li><strong>quick-ref.md</strong></li>
+<li><strong>manual.md</strong> (though, for a comprehensive manual, consider using multiple manual files in their own doc/manual subdirectory)</li>
+<li><strong>reference.md</strong> (though, for software libraries, this is may be taken care of by autogenerated API docs)</li>
+</ul>
+
+</div> <!-- article-content -->
+
+<div id="footer-nav-bar">
+<div><a href="rationale-and-benefits.html">←prev</a></div><div class="nav-bar-push"><a href="faq.html">next→</a></div>
+</div>
+
+</div> <!-- article-box -->
+
+</div> <!-- trunk-box -->
+
+<div id="my-footer">
+<a href="http://www.unexpected-vortices.com/">John Gabriele</a>, 2014&ndash;18.
+Modified by Ninad Khargonkar.<br/>
+Page last updated: 08-Mar-23 04:47 PM</br>
+Created using a <a href="https://github.com/kninad/rippledoc-ext">mod</a> of
+<a href="http://www.unexpected-vortices.com/sw/rippledoc/index.html">Rippledoc</a>
+</div> <!-- my-footer -->
+
+</div> <!-- main-outer-box -->
+
+</body>
+</html>
