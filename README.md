@@ -19,10 +19,10 @@ the code for rippledoc from its GitLab [repository](https://gitlab.com/uvtc/ripp
    2. [x] Update link to rippledoc repo to point to custom repo with my changes
    3. [x] Edit string for copyright to remove the word copyright!
    4. [x] Add last modified: date, time and timezone.
-4. [ ] *Links:* write pandoc filter to auto-convert internal markdown links
+4. [x] *Links:* write pandoc filter to auto-convert internal markdown links
    to html. This will ensure inter-linking of files is preserved even when
    converted to html. See [this](https://stackoverflow.com/q/40993488/9579260)
-   stack overflow thread for ideas about how to implement this. (**Major**)
+   stack overflow thread for ideas about how to implement this.
 5. [ ] *Style:* Edit the default css file according to your needs!
 6. [ ] *Output:* Option for writing html files to a custom `_site` dir.
 7. [ ] *Help Docs:* Create a list of docs and host them on your github webpage.
