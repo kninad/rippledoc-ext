@@ -8,6 +8,25 @@ the code for rippledoc from its GitLab [repository](https://gitlab.com/uvtc/ripp
 - Produces table of contents (toc) which is useful for documentation and wiki-like notes.
 - Free to modify and change according to our own needs.
 
+# TO DO
+
+1. [ ] *Title:* Change the default for doc title. If no `% title DOC_TITLE` block
+   found, then instead of quitting, simply use the filename as a sane default. 
+2. [ ] *Copyright:* Auto create the copyright information based on some command 
+   line args string. Add a sane default with fun name!
+3. [ ] *Document Footer:* 
+   1. [ ] Remove the option to view pandoc markdown source 
+   2. [ ] Update link to rippledoc repo to point to custom repo with my changes
+   3. [ ] Edit string for copyright to remove the word copyright!
+   4. [ ] Add last modified: date, time and timezone.
+4. [ ] *Links:* write pandoc filter to auto-convert internal markdown links
+   to html. This will ensure inter-linking of files is preserved even when
+   converted to html. See [this](https://stackoverflow.com/q/40993488/9579260)
+   stack overflow thread for ideas about how to implement this. (**Major**)
+5. [ ] *Style:* Edit the default css file according to your needs!
+6. [ ] *Output:* Option for writing html files to a custom `_site` dir.
+    
+
 # Original README
 
 **A particularly easy-to-use doc processing tool.**
