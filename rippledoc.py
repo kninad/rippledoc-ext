@@ -19,7 +19,7 @@
 
 import os, os.path, sys, subprocess, io, re, shutil
 
-VERSION = "2018-08-15"
+VERSION = "2023-03-08"
 
 project_name = None
 copyright_info = None
@@ -33,7 +33,7 @@ full_ordered_list_of_paths = []
 # Needed for for prev/next links.
 full_ordered_list_of_fnms = []
 
-using_readme_as_index = True
+using_readme_as_index = False
 
 usage_msg = """\
 You run this program in the root (top-level) of your
@@ -266,13 +266,16 @@ def get_title_from(fnm):
     if fnm == './index.md' and using_readme_as_index:
         fnm = '../README.md' # For potential error message below.
     if not line or not line.startswith('% '):
-        print(mlsl(f"""\
-        [**] Problem found with {fnm}.
-        [**] It doesn't appear to have a proper title (as in, "% Some Title"
-        [**] as its first line). Please remedy the situation. Exiting.
-        """))
-        sys.exit()
-    return line[2:].strip()
+        # print(mlsl(f"""\
+        # [**] Problem found with {fnm}.
+        # [**] It doesn't appear to have a proper title (as in, "% Some Title"
+        # [**] as its first line). Please remedy the situation. Exiting.
+        # """))
+        # sys.exit()
+        title = os.path.split(fnm)[-1][:-3]
+    else:
+        title = line[2:].strip()
+    return title
 
 
 def process_dirs_create_toc_conf_files():
