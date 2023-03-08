@@ -13,10 +13,9 @@ GitLab [repository](https://gitlab.com/uvtc/rippledoc).
 - Produces table of contents (toc) which is useful for documentation and wiki-like notes.
 - Free to modify and change according to our own needs.
 
-Complete documentation for my tool (including changes) can be found in the
-github [repo](https://github.com/kninad/rippledoc-ext/) or the associated
-html pages for it. 
-
+Complete documentation for my tool (including changes) can be found on
+[project's website](https://kninad.github.io/rippledoc-ext/)
+and the source code in its github [repo](https://github.com/kninad/rippledoc-ext/).
 
 # Original Readme
 
