@@ -142,6 +142,7 @@ blockquote code, blockquote pre {
 
 h1, h2, h3, h4, h5, h6 {
     color: #567EB5;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 h3, h5 {
